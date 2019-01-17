@@ -3,7 +3,7 @@
 // BELOW Update the songs array with four of your favorites songs.
 var songs = ["Almost There", "Poor Unfortunate Souls",
 "Ready as I'll Ever Be", "I won't say I'm in love"];
-var imagesLinks =["hercules.jpg","tangled.jpg","theLittleMermaid.jpg","thePrincessandthefrog.jpg"];
+var imagesLinks =["theprincessandthefrog.jpg","theLittleMermaid.jpg","tangled.jpg","hercules.jpg",];
 var artists=["Anika Noni Rose (Princess and the frog)"
 ,"Pat Caroll (The Little Mermaid)","Cast of Tangled: The series"
 ,"Cast of Hercules"];
@@ -17,26 +17,47 @@ var songLinks=["https://www.youtube.com/watch?v=ljdAYTH5QSY",
 // Make sure they match the same order as your array above
 
 
-
-
     // BELOW Use forEach Loop to display the data from each of your array's in the correct div
- 
-    
-for (var index = 0; index < songs.length; index++) {
-
+ function  displaySongInfo(){
+ songs.forEach(function(title){
+ $("#songs").append("<p>"+title+"</p>");   
+});
+imagesLinks.forEach(function(img){
+ $("#images").append("<img src='"+img+"'>");   
+});
+artists.forEach(function(element){
+ $("#artists").append("<p>"+element+"</p>");   
+});
+songLinks.forEach(function(links){
+ $("#links").append("<a href='"+links+"'>Listen</a>");   
+});
+songLengths.forEach(function(length){
+ $("#lengths").append("<p>"+length+"</p>");   
+});
 }
-
 function emptySongInfo(){
     $("#songs").empty();
+    $("#images").empty();
+    $("#artists").empty();
+    $("#links").empty();
+    $("#lengths").empty();
     // Use jQuery to empty all of the remaining divs
-
-
 }
 
 
 function addSongInfo(){
     // BELOW write the code to add new items to each of the arrays.
+var newsong =$("#song").val();
+var newimage=$("#image").val();
+var newartist =$("#artist").val();
+var newlength=$("#length").val();
+var newlink =$("#link").val();
 
+songs.push(newsong);
+imagesLinks.push(newimage);
+artists.push(newartist);
+songLengths.push(newlength);
+songLinks.push(newlink);
 
 }
 $("#add").click(function() {
@@ -44,5 +65,4 @@ $("#add").click(function() {
     addSongInfo();
     displaySongInfo();
 });
-
 displaySongInfo();
