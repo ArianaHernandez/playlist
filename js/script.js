@@ -60,9 +60,24 @@ songLengths.push(newlength);
 songLinks.push(newlink);
 
 }
+function deleteSongInfo(num){
+    songs.splice(num,1);
+    imagesLinks.splice(num,1);
+    artists.splice(num,1);
+    songLinks.splice(num,1);
+    songLengths.splice(num,1);
+    
+}
 $("#add").click(function() {
     emptySongInfo();
     addSongInfo();
     displaySongInfo();
 });
+
 displaySongInfo();
+
+$("#delete").click(function() {
+    deleteSongInfo($("#userChoice").val());
+    emptySongInfo();
+    displaySongInfo();
+});
