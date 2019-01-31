@@ -16,7 +16,6 @@ var songLinks=["https://www.youtube.com/watch?v=ljdAYTH5QSY",
 // BELOW Add 4 More arrays to store images_links, atists, song lengths, and links for each song
 // Make sure they match the same order as your array above
 
-
     // BELOW Use forEach Loop to display the data from each of your array's in the correct div
  function  displaySongInfo(){
  songs.forEach(function(title){
@@ -72,6 +71,7 @@ $("#add").click(function() {
     emptySongInfo();
     addSongInfo();
     displaySongInfo();
+    pushToLocalStorage();
 });
 
 displaySongInfo();
@@ -80,4 +80,17 @@ $("#delete").click(function() {
     deleteSongInfo($("#userChoice").val());
     emptySongInfo();
     displaySongInfo();
+    pushToLocalStorage();
 });
+
+
+$("#empty").click(function() {
+window.localStorage.clear();
+});
+function pushToLocalStorage(){
+    window.localStorage.setItem("songs",JSON.stringify(songs));
+    window.localStorage.setItem("imagelinks",JSON.stringify(imagesLinks));
+    window.localStorage.setItem("artists",JSON.stringify(artists));
+    window.localStorage.setItem("songLinks",JSON.stringify(songLinks));
+    window.localStorage.setItem("songLengths",JSON.stringify(songLengths));
+}
