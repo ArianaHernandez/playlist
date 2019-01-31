@@ -17,20 +17,30 @@ var songLinks=["https://www.youtube.com/watch?v=ljdAYTH5QSY",
 // Make sure they match the same order as your array above
 
     // BELOW Use forEach Loop to display the data from each of your array's in the correct div
+$( document ).ready(function() {
+   pushToLocalStorage();
+    
+});
+
  function  displaySongInfo(){
- songs.forEach(function(title){
+    var newSongs = JSON.parse(window.localStorage["songs"]);
+ newSongs.forEach(function(title){
  $("#songs").append("<p>"+title+"</p>");   
 });
-imagesLinks.forEach(function(img){
+var newImg = JSON.parse(window.localStorage["imagesLinks"]);
+newImg.forEach(function(img){
  $("#images").append("<img src='"+img+"'>");   
 });
-artists.forEach(function(element){
+var newArt=JSON.parse(window.localStorage["artists"]);
+newArt.forEach(function(element){
  $("#artists").append("<p>"+element+"</p>");   
 });
-songLinks.forEach(function(links){
+var newSongLink = JSON.parse(window.localStorage["songLinks"]);
+newSongLink.forEach(function(links){
  $("#links").append("<a href='"+links+"'>Listen</a>");   
 });
-songLengths.forEach(function(length){
+var newLength = JSON.parse(window.localStorage["songLengths"]);
+newLength.forEach(function(length){
  $("#lengths").append("<p>"+length+"</p>");   
 });
 }
@@ -42,7 +52,6 @@ function emptySongInfo(){
     $("#lengths").empty();
     // Use jQuery to empty all of the remaining divs
 }
-
 
 function addSongInfo(){
     // BELOW write the code to add new items to each of the arrays.
@@ -89,7 +98,7 @@ window.localStorage.clear();
 });
 function pushToLocalStorage(){
     window.localStorage.setItem("songs",JSON.stringify(songs));
-    window.localStorage.setItem("imagelinks",JSON.stringify(imagesLinks));
+    window.localStorage.setItem("imagesLinks",JSON.stringify(imagesLinks));
     window.localStorage.setItem("artists",JSON.stringify(artists));
     window.localStorage.setItem("songLinks",JSON.stringify(songLinks));
     window.localStorage.setItem("songLengths",JSON.stringify(songLengths));
