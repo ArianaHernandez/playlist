@@ -16,6 +16,13 @@ background-image:url("http://31.media.tumblr.com/5a0639cb860bc05df680968c24fa1d7
 }
 body{
     background-color:#006899;
+      cursor:url(too413.cur),auto;
+}
+a:hover{
+ cursor:url(too739.cur),auto;   
+}
+img:hover{
+    cursor:url(too923.cur),auto;
 }
 #cart {
     display: flex;
