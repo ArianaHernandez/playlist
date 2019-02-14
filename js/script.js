@@ -79,8 +79,8 @@ function deleteSongInfo(num){
 $("#add").click(function() {
     emptySongInfo();
     addSongInfo();
-    displaySongInfo();
     pushToLocalStorage();
+    displaySongInfo();
 });
 
 displaySongInfo();
